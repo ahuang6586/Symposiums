@@ -10,6 +10,13 @@ public class Game extends GUIApplication {
 	 */
 	private static final long serialVersionUID = 1L;
 
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Game sg = new Game(800,600);
+		Thread game = new Thread(sg);
+		game.start();
+
+	}
 	public Game(int width, int height) {
 		super(width, height);
 		// TODO Auto-generated constructor stub
@@ -22,12 +29,6 @@ public class Game extends GUIApplication {
 		setScreen(gs);	
 	}
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		Game sg = new Game(800,600);
-		Thread game = new Thread(sg);
-		game.start();
-
-	}
+	
 
 }
