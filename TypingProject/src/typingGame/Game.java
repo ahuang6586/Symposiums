@@ -1,10 +1,14 @@
 package typingGame;
 
 import guiTeacher.GUIApplication;
-import simon.SimonGame;
-import simon.SimonGameScreen;
+
 
 public class Game extends GUIApplication {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	public Game(int width, int height) {
 		super(width, height);
@@ -14,13 +18,13 @@ public class Game extends GUIApplication {
 	@Override
 	public void initScreen() {
 		// TODO Auto-generated method stub
-		GameScreen sms = new GameScreen(getWidth(),getHeight());
-		setScreen(sms);	
+		GameScreen gs = new GameScreen(getWidth(),getHeight());
+		setScreen(gs);	
 	}
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		SimonGame sg = new SimonGame(800,600);
+		Game sg = new Game(800,600);
 		Thread game = new Thread(sg);
 		game.start();
 
