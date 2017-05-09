@@ -9,28 +9,28 @@ public class Game extends GUIApplication {
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 1L;
-	public static GameScreen app;
-	public static Screen gs;
+	
+	
 	public Game(int width, int height) {
 		super(width, height);
-		// TODO Auto-generated constructor stub
+		
+	}
+	@Override
+	public void initScreen() {
+		
+		GameScreen gs = new GameScreen(800,600);
+		setScreen(gs);
 	}
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		app = new GameScreen(800,600);
-		Thread game = new Thread(app);
+		
+		Game g = new Game(800,600);
+		Thread game = new Thread(g);
 		game.start();
 
 	}
 	
 
-	@Override
-	public void initScreen() {
-		// TODO Auto-generated method stub
-		gs = new GameScreen(getWidth(),getHeight());
-		setScreen(gs);	
-	}
+	
 
 	
 

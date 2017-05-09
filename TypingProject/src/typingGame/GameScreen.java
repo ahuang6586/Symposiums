@@ -16,7 +16,8 @@ public class GameScreen extends ClickableScreen implements Runnable {
 
 	public GameScreen(int width, int height) {
 		super(width, height);
-	
+		Thread play = new Thread(this);
+		play.start();
 
 	}
 
