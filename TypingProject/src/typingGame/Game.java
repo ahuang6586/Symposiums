@@ -5,11 +5,12 @@ import guiTeacher.userInterfaces.Screen;
 
 
 public class Game extends GUIApplication {
-
 	/**
 	 * 
 	 */
-	
+	private static final long serialVersionUID = 1L;
+	public static Game app;
+	public static Screen ws;
 	
 	public Game(int width, int height) {
 		super(width, height);
@@ -18,13 +19,13 @@ public class Game extends GUIApplication {
 	@Override
 	public void initScreen() {
 		
-		GameScreen gs = new GameScreen(800,600);
-		setScreen(gs);
+		ws = new GameScreen(getWidth(), getHeight());
+		setScreen(ws);
 	}
 	public static void main(String[] args) {
 		
-		Game g = new Game(800,600);
-		Thread game = new Thread(g);
+		app = new Game(800,600);
+		Thread game = new Thread(app);
 		game.start();
 
 	}

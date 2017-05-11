@@ -4,7 +4,7 @@ import java.util.List;
 
 import guiTeacher.interfaces.Visible;
 import guiTeacher.userInterfaces.ClickableScreen;
-import guiTeacher.userInterfaces.FullFunctionScreen;
+
 
 
 public class GameScreen extends ClickableScreen implements Runnable {
