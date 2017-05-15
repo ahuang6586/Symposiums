@@ -16,9 +16,9 @@ public class CustomButton extends TextLabel implements Clickable {
 	private Color color;
 	private Color textColor;
 
-	public CustomButton(int x, int y, int w, int h, String text, Color color, Action action,Color textColor) {
+	public CustomButton(int x, int y, int w, int h, String text, Color color,Action action2, Color textColor) {
 		super(x, y, w, h, text);
-		this.action = action;
+	    this.action = action2;
 		this.color = color;
 		this.textColor = textColor;
 		update();

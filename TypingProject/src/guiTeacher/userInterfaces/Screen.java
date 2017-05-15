@@ -48,7 +48,7 @@ public abstract class Screen extends ComponentContainer{
 		Graphics2D g2 = buffer.createGraphics();
 		g2.setRenderingHint( RenderingHints.KEY_ANTIALIASING,
 	             RenderingHints.VALUE_ANTIALIAS_ON);
-		g2.setColor(Color.white);
+		g2.setColor(Color.BLUE);
 		g2.fillRect(0, 0, getImage().getWidth(), getImage().getHeight());
 		g2.setColor(Color.black);
 		drawObjects(g2);
