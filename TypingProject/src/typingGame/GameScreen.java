@@ -9,11 +9,15 @@ import javax.swing.Action;
 
 import guiTeacher.interfaces.Visible;
 import guiTeacher.userInterfaces.ClickableScreen;
-import guis.components.TextLabel;
+import typingGame.ThemedTextLabel;
+import typingGame.Car;
+import typingGame.CarInterface;
+
 
 
 
 public class GameScreen extends ClickableScreen implements Runnable {
+	
 	private ThemedTextLabel label;
 	private ThemedTextLabel timelabel;
 	private CustomButton start;
@@ -23,28 +27,50 @@ public class GameScreen extends ClickableScreen implements Runnable {
 
 	public GameScreen(int width, int height) {
 		super(width, height); 
-
+		timeLeft = 60.0;
+		Thread play = new Thread(this);
+		play.start();
 	}
 	
 	
 
 	@Override
 	public void initAllObjects(List<Visible> view) {
-		label = new ThemedTextLabel(200, 200, 120, 50, "30.0", Color.black);
+		label = new ThemedTextLabel(200, 150, 120, 50, "", Color.black);
 		view.add(label);
-		timelabel = new ThemedTextLabel(50, 250, 200, 50, "Time Remaining", Color.black);
+		timelabel = new ThemedTextLabel(50, 250, 200, 50, "", Color.black);
 		view.add(timelabel);
 	//	start = new CustomButton(600, 55, 200, 100, "START",Color.GREEN,Color.yellow);
 		
 	}
-
+	public CarInterface getACar(){
+		return new Car(50,50);
+	}
+	private void appearCar(){
+		final CarInterface car = getACar();
+		addObject((Visible) car);
+	}
+	
 
 
 	@Override
-	public void run() {
-		
-		
+	
+		public void run() {
+			
+			//since this is a timed game, we will use a while loop
+			//this is not necessary for games that 
+			//aren't timed (like Simon)
+		changeText("Ready...");
+		changeText("Set....");
+		changeText("Go.....");
+		label.setText("");	
+		while(timeLeft > 0){
+				updateTimer();
+				
+			}
 	}
+		
+	
 	private void updateTimer() {
 		try {
 			Thread.sleep(100);
@@ -56,7 +82,7 @@ public class GameScreen extends ClickableScreen implements Runnable {
 		//.1 is not a clean number in binary 
 		//so to fix the output, we use this little formula to round
 		//to the nearest tenth
-		timeLabel.setText(""+(int)(timeLeft*10)/10.0);
+		timelabel.setText(""+(int)(timeLeft*10)/10.0);
 	}
 	//USE THIS METHOD IN "SIMON" TOO!
 	private void changeText(String string){
