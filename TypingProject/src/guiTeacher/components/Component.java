@@ -59,9 +59,9 @@ public abstract class Component implements Visible {
 		containingComponent = container;
 	}
 
-	public void clear(){
+	public Graphics2D clear(){
 		image = new BufferedImage(getWidth(), getHeight(), BufferedImage.TYPE_INT_ARGB);
-//		return image.createGraphics();
+		return image.createGraphics();
 	}
 	
 	

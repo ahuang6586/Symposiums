@@ -44,7 +44,7 @@ public class GameScreen extends ClickableScreen implements Runnable {
 		
 	}
 	public CarInterface getACar(){
-		return new Car(50,50);
+		return new Car(100,100);
 	}
 	private void appearCar(){
 		final CarInterface car = getACar();
@@ -83,6 +83,7 @@ public class GameScreen extends ClickableScreen implements Runnable {
 		//so to fix the output, we use this little formula to round
 		//to the nearest tenth
 		timelabel.setText(""+(int)(timeLeft*10)/10.0);
+		
 	}
 	//USE THIS METHOD IN "SIMON" TOO!
 	private void changeText(String string){

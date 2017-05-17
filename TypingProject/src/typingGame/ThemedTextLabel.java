@@ -24,7 +24,7 @@ public class ThemedTextLabel extends Component {
 
 	@Override
 	public void update(Graphics2D g) {
-		// g = clear();//delete previous text
+		g = clear();//delete previous text
 		g.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
 		g.setColor(color);
 		g.setFont(new Font(font, Font.PLAIN, size));
