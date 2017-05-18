@@ -37,6 +37,8 @@ Today I want to be able change the background color
 I was able to change the background color and now i am trying to make a start button
 I will make a 60 second timer tomorrow.
 5/16/17
+Today I want to learn how to use keylisteners
+
 Today I want to make a timer that counts down from sixty seconds
 I watched a video on how I might want to make words appear and how to use keylisteners
 https://www.youtube.com/watch?v=saLcT5UE-JM
@@ -45,3 +47,9 @@ Tomorrow i want to fix my timer so that the text doesn't overlap
 Today i want to fix my timer.
 I was able to fix my timer.
 Tomorrow i want to make my car image appear on the screen
+5/18/17
+https://unicode-table.com/en/#0044
+https://docs.oracle.com/javase/7/docs/api/java/awt/event/KeyEvent.html
+Today I will research how to use keylisteners.
+I made a TextField and was able to get it to print something when the correct letter is pressed.
+Tomorrow i want to make a sprite move.

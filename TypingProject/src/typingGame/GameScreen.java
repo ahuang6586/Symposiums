@@ -2,24 +2,30 @@ package typingGame;
 
 import java.awt.Color;
 import java.awt.Graphics2D;
-
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.Action;
 
 import guiTeacher.interfaces.Visible;
 import guiTeacher.userInterfaces.ClickableScreen;
+import guiTeacher.userInterfaces.FullFunctionScreen;
 import typingGame.ThemedTextLabel;
 import typingGame.Car;
 import typingGame.CarInterface;
+import javax.swing.JFrame;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 
 
 
 
-public class GameScreen extends ClickableScreen implements Runnable {
+public class GameScreen extends FullFunctionScreen implements Runnable {
 	
+	private ArrayList<CarInterface> car;
 	private ThemedTextLabel label;
 	private ThemedTextLabel timelabel;
+	private TextInput keyin;
 	private CustomButton start;
 	 private double timeLeft;
 	
@@ -30,25 +36,38 @@ public class GameScreen extends ClickableScreen implements Runnable {
 		timeLeft = 60.0;
 		Thread play = new Thread(this);
 		play.start();
+		 JFrame frame = new JFrame();
+		  ImageIcon icon = new ImageIcon("resource/car.jpg");
+		  JLabel label = new JLabel(icon);
+		  frame.add(label);
+		  frame.setDefaultCloseOperation
+		         (JFrame.EXIT_ON_CLOSE);
+		  frame.pack();
+		  frame.setVisible(true);
 	}
 	
 	
 
 	@Override
 	public void initAllObjects(List<Visible> view) {
+		car = new ArrayList<CarInterface>();
 		label = new ThemedTextLabel(200, 150, 120, 50, "", Color.black);
 		view.add(label);
 		timelabel = new ThemedTextLabel(50, 250, 200, 50, "", Color.black);
 		view.add(timelabel);
 	//	start = new CustomButton(600, 55, 200, 100, "START",Color.GREEN,Color.yellow);
+		keyin = new TextInput();
+		view.add(keyin);
+		
 		
 	}
 	public CarInterface getACar(){
-		return new Car(100,100);
+		return new Car(150,100);
 	}
 	private void appearCar(){
 		final CarInterface car = getACar();
-		addObject((Visible) car);
+		car.setAppearanceTime(100);
+		
 	}
 	
 
