@@ -2,11 +2,16 @@ package typingGame;
 
 import java.awt.Color;
 import java.awt.Graphics2D;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.Action;
 
+import guiTeacher.components.ClickableGraphic;
+import guiTeacher.components.Graphic;
+import guiTeacher.components.TextLabel;
 import guiTeacher.interfaces.Visible;
 import guiTeacher.userInterfaces.ClickableScreen;
 import guiTeacher.userInterfaces.FullFunctionScreen;
@@ -16,18 +21,26 @@ import typingGame.CarInterface;
 import javax.swing.JFrame;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+import javax.swing.Timer;
+
+import java.awt.image.BufferedImage;
 
 
 
 
-public class GameScreen extends FullFunctionScreen implements Runnable {
-	
+public class GameScreen extends FullFunctionScreen implements Runnable, ActionListener {
+	private String[] words = {"Car","Word"};
 	private ArrayList<CarInterface> car;
 	private ThemedTextLabel label;
 	private ThemedTextLabel timelabel;
 	private TextInput keyin;
 	private CustomButton start;
 	 private double timeLeft;
+	private Graphic image;
+	Timer tm = new Timer(5, this);
+	int x = 500;
+	int velX = -5;
+	private ThemedTextLabel word;
 	
 	public static final Color BUTTON_COLOR = new Color(255, 255, 255);
 
@@ -55,9 +68,22 @@ public class GameScreen extends FullFunctionScreen implements Runnable {
 		view.add(label);
 		timelabel = new ThemedTextLabel(50, 250, 200, 50, "", Color.black);
 		view.add(timelabel);
-	//	start = new CustomButton(600, 55, 200, 100, "START",Color.GREEN,Color.yellow);
+//	
+//		start = new CustomButton(600, 55, 200, 100, "START", BUTTON_COLOR, new Action() {
+//			@Override
+//			public void act() {
+//				//updateFinished();
+//			}
+//		}, Color.BLACK);
+		view.add(start);
 		keyin = new TextInput();
 		view.add(keyin);
+		image = new Graphic(500, 200, 100, 100, "resource/car.png");
+		view.add(image);
+		for(int i = 0; i < words.length; i++){			
+			word = new ThemedTextLabel(200, 200, 200, 200, words[i],Color.black);
+		}
+		view.add(word);
 		
 		
 	}
@@ -113,6 +139,13 @@ public class GameScreen extends FullFunctionScreen implements Runnable {
 		catch(InterruptedException e){
 			e.printStackTrace();
 		}
+	}
+
+
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		x = x + velX;
 	}
 	
 

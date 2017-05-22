@@ -24,6 +24,8 @@ public class CustomButton extends TextLabel implements Clickable {
 		update();
 	}
 
+	
+
 	public Color getColor(){
 		return color;
 	}

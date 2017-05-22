@@ -53,3 +53,7 @@ https://docs.oracle.com/javase/7/docs/api/java/awt/event/KeyEvent.html
 Today I will research how to use keylisteners.
 I made a TextField and was able to get it to print something when the correct letter is pressed.
 Tomorrow i want to make a sprite move.
+5/19/17
+Today I was able make the sprite appear
+I was looking at videoes to see how to make the sprite move by itself
+Tomorrow i want the sprite to move
