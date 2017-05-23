@@ -9,8 +9,11 @@ import java.util.List;
 
 import javax.swing.Action;
 
+import guiTeacher.components.AnimatedComponent;
+import guiTeacher.components.Button;
 import guiTeacher.components.ClickableGraphic;
 import guiTeacher.components.Graphic;
+import guiTeacher.components.MovingComponent;
 import guiTeacher.components.TextLabel;
 import guiTeacher.interfaces.Visible;
 import guiTeacher.userInterfaces.ClickableScreen;
@@ -41,6 +44,9 @@ public class GameScreen extends FullFunctionScreen implements Runnable, ActionLi
 	int x = 500;
 	int velX = -5;
 	private ThemedTextLabel word;
+	private AnimatedComponent a;
+	private MovingComponent m;
+	private Button restart;
 	
 	public static final Color BUTTON_COLOR = new Color(255, 255, 255);
 
@@ -63,6 +69,12 @@ public class GameScreen extends FullFunctionScreen implements Runnable, ActionLi
 
 	@Override
 	public void initAllObjects(List<Visible> view) {
+		int w = 165;
+		int h = 293;
+		int numberInRow =12;
+		int rows = 5;
+		a = new AnimatedComponent(40, 40, w, h);
+		m = new MovingComponent(0, 20, 40, 40);
 		car = new ArrayList<CarInterface>();
 		label = new ThemedTextLabel(200, 150, 120, 50, "", Color.black);
 		view.add(label);
@@ -72,18 +84,18 @@ public class GameScreen extends FullFunctionScreen implements Runnable, ActionLi
 //		start = new CustomButton(600, 55, 200, 100, "START", BUTTON_COLOR, new Action() {
 //			@Override
 //			public void act() {
-//				//updateFinished();
+//				
 //			}
 //		}, Color.BLACK);
-		view.add(start);
+		//view.add(start);
 		keyin = new TextInput();
 		view.add(keyin);
 		image = new Graphic(500, 200, 100, 100, "resource/car.png");
 		view.add(image);
-		for(int i = 0; i < words.length; i++){			
-			word = new ThemedTextLabel(200, 200, 200, 200, words[i],Color.black);
-		}
-		view.add(word);
+//		for(int i = 0; i < words.length; i++){			
+//			word = new ThemedTextLabel(200, 200, 200, 200, words[i],Color.black);
+//		}
+//		view.add(word);
 		
 		
 	}
