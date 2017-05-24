@@ -24,6 +24,8 @@ import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 import java.awt.image.BufferedImage;
 
+import javax.swing.Action;
+
 import guiTeacher.Utilities;
 import guiTeacher.interfaces.Clickable;
 
@@ -53,6 +55,8 @@ public class Button extends TextLabel implements Clickable{
 	
 	
 	
+
+
 	public boolean isEnabled() {
 		return enabled;
 	}
@@ -124,7 +128,7 @@ public class Button extends TextLabel implements Clickable{
 	}
 	
 	public void act(){
-		action.act();
+		((Clickable) action).act();
 	}
 	
 	public void setAction(Action a){
@@ -133,6 +137,12 @@ public class Button extends TextLabel implements Clickable{
 
 	public boolean isHovered() {
 		return hovered;
+	}
+
+	@Override
+	public void setAction(guiTeacher.components.Action a) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 	

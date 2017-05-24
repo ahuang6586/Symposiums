@@ -27,6 +27,7 @@ import javax.swing.JLabel;
 import javax.swing.Timer;
 
 import java.awt.image.BufferedImage;
+import java.beans.PropertyChangeListener;
 
 
 
@@ -36,9 +37,11 @@ public class GameScreen extends FullFunctionScreen implements Runnable, ActionLi
 	private ArrayList<CarInterface> car;
 	private ThemedTextLabel label;
 	private ThemedTextLabel timelabel;
+	private ThemedTextLabel startword;
 	private TextInput keyin;
-	private CustomButton start;
-	 private double timeLeft;
+	private Button start;
+	private double timeLeft;
+	 
 	private Graphic image;
 	Timer tm = new Timer(5, this);
 	int x = 500;
@@ -47,6 +50,7 @@ public class GameScreen extends FullFunctionScreen implements Runnable, ActionLi
 	private AnimatedComponent a;
 	private MovingComponent m;
 	private Button restart;
+	
 	
 	public static final Color BUTTON_COLOR = new Color(255, 255, 255);
 
@@ -73,21 +77,62 @@ public class GameScreen extends FullFunctionScreen implements Runnable, ActionLi
 		int h = 293;
 		int numberInRow =12;
 		int rows = 5;
-		a = new AnimatedComponent(40, 40, w, h);
-		m = new MovingComponent(0, 20, 40, 40);
-		car = new ArrayList<CarInterface>();
+	
+	
 		label = new ThemedTextLabel(200, 150, 120, 50, "", Color.black);
 		view.add(label);
 		timelabel = new ThemedTextLabel(50, 250, 200, 50, "", Color.black);
 		view.add(timelabel);
-//	
-//		start = new CustomButton(600, 55, 200, 100, "START", BUTTON_COLOR, new Action() {
-//			@Override
-//			public void act() {
-//				
-//			}
-//		}, Color.BLACK);
-		//view.add(start);
+		start = new Button(600, 55, 200, 100, "HERRRRREEEEEEE", GameScreen.BUTTON_COLOR, new Action() {
+			public void act() {
+				
+			}
+
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void addPropertyChangeListener(PropertyChangeListener arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public Object getValue(String arg0) {
+				// TODO Auto-generated method stub
+				return null;
+			}
+
+			@Override
+			public boolean isEnabled() {
+				// TODO Auto-generated method stub
+				return false;
+			}
+
+			@Override
+			public void putValue(String arg0, Object arg1) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void removePropertyChangeListener(PropertyChangeListener arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void setEnabled(boolean arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
+		view.add(start);
+		startword = new ThemedTextLabel(650, 25, 200, 100, "START", Color.black);
+		view.add(startword);
 		keyin = new TextInput();
 		view.add(keyin);
 		image = new Graphic(500, 200, 100, 100, "resource/car.png");
@@ -99,14 +144,8 @@ public class GameScreen extends FullFunctionScreen implements Runnable, ActionLi
 		
 		
 	}
-	public CarInterface getACar(){
-		return new Car(150,100);
-	}
-	private void appearCar(){
-		final CarInterface car = getACar();
-		car.setAppearanceTime(100);
-		
-	}
+	
+
 	
 
 
