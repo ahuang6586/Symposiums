@@ -83,7 +83,7 @@ public class GameScreen extends FullFunctionScreen implements Runnable, ActionLi
 		view.add(label);
 		timelabel = new ThemedTextLabel(50, 250, 200, 50, "", Color.black);
 		view.add(timelabel);
-		start = new Button(600, 55, 200, 100, "HERRRRREEEEEEE", GameScreen.BUTTON_COLOR, new Action() {
+		start = new Button(600, 55, 200, 100, "", GameScreen.BUTTON_COLOR, new Action() {
 			public void act() {
 				
 			}
