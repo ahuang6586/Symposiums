@@ -1,12 +1,9 @@
 package typingGame;
 
 import guiTeacher.components.Action;
+import guiTeacher.components.Visible;
 
-public interface CarInterface {
-
-	int getAppearanceTime();
-
-	void setAppearanceTime(int screenTime);
-
-	void setAction(Action action);
+public interface CarInterface extends Visible {
+	
+	
 }
