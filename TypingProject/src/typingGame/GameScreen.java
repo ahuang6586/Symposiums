@@ -1,6 +1,7 @@
 package typingGame;
 
 import java.awt.Color;
+import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -33,7 +34,8 @@ import java.beans.PropertyChangeListener;
 
 
 public class GameScreen extends FullFunctionScreen implements Runnable, ActionListener {
-	private String[] words = {"Car","Word"};
+	
+	
 	private ArrayList<CarInterface> car;
 	private ThemedTextLabel label;
 	private ThemedTextLabel timelabel;
@@ -68,17 +70,23 @@ public class GameScreen extends FullFunctionScreen implements Runnable, ActionLi
 		  frame.pack();
 		  frame.setVisible(true);
 	}
+//	public void paintComponent(Graphics g){
+//		super.paintComponent(g);
+//		g.setColor(Color.RED);
+//		g.fillRect(x, 30, 50, 30);
+//		tm.start();
+//	}
+
 	
 	
 
-	@Override
 	public void initAllObjects(List<Visible> view) {
-		int w = 165;
-		int h = 293;
-		int numberInRow =12;
-		int rows = 5;
+//		int w = 165;
+//		int h = 293;
+//		int numberInRow =12;
+//		int rows = 5;
 	
-	
+		
 		label = new ThemedTextLabel(200, 150, 120, 50, "", Color.black);
 		view.add(label);
 		timelabel = new ThemedTextLabel(50, 250, 200, 50, "", Color.black);
@@ -191,13 +199,23 @@ public class GameScreen extends FullFunctionScreen implements Runnable, ActionLi
 			e.printStackTrace();
 		}
 	}
-	
+
+
 
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		x = x + velX;
+		// TODO Auto-generated method stub
+		
 	}
+	
+
+
+//	@Override
+//	public void actionPerformed(ActionEvent e) {
+//		x = x + velX;
+//		repaint();
+//	}
 	
 
 }

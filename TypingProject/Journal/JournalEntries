@@ -53,18 +53,23 @@ https://docs.oracle.com/javase/7/docs/api/java/awt/event/KeyEvent.html
 Today I will research how to use keylisteners.
 I made a TextField and was able to get it to print something when the correct letter is pressed.
 Tomorrow i want to make a sprite move.
-5/19/17
+5/22/17
 Today I was able make the sprite appear
 I was looking at videos to see how to make the sprite move by itself
 Tomorrow i want the sprite to move
-5/20/17
+5/23/17
 Today i want to learn how to move the sprite
 Tomorrow I will try to fix my sprite so that it will move.
-5/21/17
+5/24/17
 Today I will make a start button and continue watching videoes to get my sprite to move.
 I was able to make a start button today.
 Tomorrow I still need to make the sprite move.
-5/22/17
+5/25/17
 Today I was looking to see how to make a sprite move
 https://www.youtube.com/watch?v=I3usNR8JrEE
 Tomorrow i will work on what phrases i want a person to type.
+5/26/17
+Today I want to put words that i want the player to type
+Today i was able to put some words that i want the player to type.
+http://freesourcecode.net/javaprojects/73118/sourcecode/typingtutor.java#.WShfluvyvcs
+Tomorrow i want to learn how to use a textfield to check the inputs.

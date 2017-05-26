@@ -115,6 +115,12 @@ public class TextLabel extends StyledComponent implements TextComponent{
 			//does nothing. TExtLabels are never editable
 		}
 
+		@Override
+		public Thread getThread() {
+			// TODO Auto-generated method stub
+			return null;
+		}
+
 		
 
 

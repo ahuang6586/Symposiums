@@ -297,6 +297,12 @@ public class TextField extends StyledComponent implements KeyedComponent,Clickab
 		// TODO Auto-generated method stub
 		
 	}
+
+	@Override
+	public Thread getThread() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 	
 }
