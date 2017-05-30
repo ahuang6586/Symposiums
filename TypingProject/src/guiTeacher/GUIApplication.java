@@ -19,10 +19,12 @@
 package guiTeacher;
 
 import java.awt.Graphics;
+import java.util.ArrayList;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+import guiTeacher.interfaces.Visible;
 import guiTeacher.userInterfaces.ComponentContainer;
 import guiTeacher.userInterfaces.Screen;
 import guiTeacher.userInterfaces.Transition;
@@ -105,6 +107,13 @@ public abstract class GUIApplication extends JFrame implements Runnable{
 				e.printStackTrace();
 			}
 		}
+	}
+
+
+
+	public void initAllObjects(ArrayList<Visible> view) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 }

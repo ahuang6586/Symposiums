@@ -5,6 +5,10 @@ import java.awt.event.KeyEvent;
 import guiTeacher.components.TextField;
 
 public class TextInput extends TextField {
+	
+	private ThemedTextLabel display;
+	private String textToType;
+	private int index;
 private String[] words = {"Love", "Hate", "Truth", "Happy", "Pressure",  "Vampire"
 			
 	        , "Surf", "Believe", "Slime", "Dream", "Religion", "Rhythm", "Disco", "Honey",
@@ -55,13 +59,33 @@ private String[] words = {"Love", "Hate", "Truth", "Happy", "Pressure",  "Vampir
 //		else{
 //			System.out.print("no");
 //		}
-		if( t < word)
+		for(int i = 0; i < words[i].length();i++){
+			
+		}
+		
 		if(c == KeyEvent.VK_W ){
 			System.out.println("Right");
 		}
 		
 		
 		
+	}
+	public void setDisplay(ThemedTextLabel label) {
+		display = label;
+	}
+	public void checkEntry() {
+		if(getText().equals(textToType)){
+			index++;
+			
+			setCursor(0);
+			setText("");
+			textToType = words[index];
+			display.setText(textToType);
+		}
+	}
+	public void setStart() {
+		textToType = words[index];
+		display.setText(textToType);
 	}
 	
 }

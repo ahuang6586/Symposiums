@@ -8,8 +8,7 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.swing.Action;
-
+import guiTeacher.components.Action;
 import guiTeacher.components.AnimatedComponent;
 import guiTeacher.components.Button;
 import guiTeacher.components.ClickableGraphic;
@@ -92,48 +91,9 @@ public class GameScreen extends FullFunctionScreen implements Runnable, ActionLi
 		timelabel = new ThemedTextLabel(50, 250, 200, 50, "", Color.black);
 		view.add(timelabel);
 		start = new Button(600, 55, 200, 100, "", GameScreen.BUTTON_COLOR, new Action() {
+			
+			@Override
 			public void act() {
-				
-			}
-
-			@Override
-			public void actionPerformed(ActionEvent arg0) {
-				// TODO Auto-generated method stub
-				
-			}
-
-			@Override
-			public void addPropertyChangeListener(PropertyChangeListener arg0) {
-				// TODO Auto-generated method stub
-				
-			}
-
-			@Override
-			public Object getValue(String arg0) {
-				// TODO Auto-generated method stub
-				return null;
-			}
-
-			@Override
-			public boolean isEnabled() {
-				// TODO Auto-generated method stub
-				return false;
-			}
-
-			@Override
-			public void putValue(String arg0, Object arg1) {
-				// TODO Auto-generated method stub
-				
-			}
-
-			@Override
-			public void removePropertyChangeListener(PropertyChangeListener arg0) {
-				// TODO Auto-generated method stub
-				
-			}
-
-			@Override
-			public void setEnabled(boolean arg0) {
 				// TODO Auto-generated method stub
 				
 			}
@@ -168,9 +128,11 @@ public class GameScreen extends FullFunctionScreen implements Runnable, ActionLi
 		changeText("Set....");
 		changeText("Go.....");
 		label.setText("");	
+		keyin.setDisplay(label);
+		keyin.setStart();
 		while(timeLeft > 0){
 				updateTimer();
-				
+				keyin.checkEntry();
 			}
 	}
 		
