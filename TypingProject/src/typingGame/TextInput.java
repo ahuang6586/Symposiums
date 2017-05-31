@@ -9,6 +9,7 @@ public class TextInput extends TextField {
 	private ThemedTextLabel display;
 	private String textToType;
 	private int index;
+	private int points;
 private String[] words = {"Love", "Hate", "Truth", "Happy", "Pressure",  "Vampire"
 			
 	        , "Surf", "Believe", "Slime", "Dream", "Religion", "Rhythm", "Disco", "Honey",
@@ -74,13 +75,16 @@ private String[] words = {"Love", "Hate", "Truth", "Happy", "Pressure",  "Vampir
 		display = label;
 	}
 	public void checkEntry() {
+		points = 0;
 		if(getText().equals(textToType)){
+			
 			index++;
 			
 			setCursor(0);
 			setText("");
 			textToType = words[index];
 			display.setText(textToType);
+			points++;
 		}
 	}
 	public void setStart() {

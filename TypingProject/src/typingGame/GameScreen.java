@@ -41,6 +41,7 @@ public class GameScreen extends FullFunctionScreen implements Runnable, ActionLi
 	private ThemedTextLabel startword;
 	private TextInput keyin;
 	private Button start;
+	private int score;
 	private double timeLeft;
 	 
 	private Graphic image;
@@ -85,7 +86,7 @@ public class GameScreen extends FullFunctionScreen implements Runnable, ActionLi
 //		int numberInRow =12;
 //		int rows = 5;
 	
-		
+		int score = 0;
 		label = new ThemedTextLabel(200, 150, 120, 50, "", Color.black);
 		view.add(label);
 		timelabel = new ThemedTextLabel(50, 250, 200, 50, "", Color.black);
@@ -133,6 +134,7 @@ public class GameScreen extends FullFunctionScreen implements Runnable, ActionLi
 		while(timeLeft > 0){
 				updateTimer();
 				keyin.checkEntry();
+				score++;
 			}
 	}
 		
