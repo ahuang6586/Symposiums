@@ -1,6 +1,10 @@
 package typingGame;
 
+import java.awt.Color;
+import java.awt.Graphics2D;
+
 import  guiTeacher.components.ClickableGraphic;
+import guiTeacher.components.Graphic;
 import guiTeacher.components.MovingComponent;
 
 
@@ -8,29 +12,39 @@ public class Car extends MovingComponent {
 	
 	private String imgLoc;
 	private Thread cThread;
+	private Graphic truck;
 	
-	public Car(int x, int y, int w, int h, int vx, String imgLoc) {
+	public Car(int x, int y, int w, int h,int vx) {
 		super(x, y, w, h);
 		this.imgLoc = imgLoc;
+		truck = new Graphic(0,0,w,h,"resource/car.png");
 		setX(x);
 		setY(y);
 		setVx(vx);
+		
 	}
-	public String getImgLoc() {
-		return imgLoc;
-	}
-
-	public void setImgLoc(String imgLoc) {
-		this.imgLoc = imgLoc;
-	}
-	public void play() {
-		if (!isRunning()) {
-			cThread = new Thread(this);
-			cThread.start();
+	public void checkBehaviors(){
+		if(posy+vy > 300){
+			posy = 300;
+			vy=-vy;
 		}
+		else if(posy+vy < 20){
+			posy = 20;
+			vy=-vy;
+		}
+		
+		if(posx+vx > 300){
+			posx = 300;
+			vx=-vx;
+		}
+		else if(posx+vx < 20){
+			posx = 20;
+			vx=-vx;
+		}
+		
 	}
-	@Override
-	public Thread getThread() {
-		return cThread;
+	public void drawImage(Graphics2D g) {
+		g.setColor(Color.black);
+		g.drawImage(truck.getImage(),0, 0 ,null);
 	}
 }

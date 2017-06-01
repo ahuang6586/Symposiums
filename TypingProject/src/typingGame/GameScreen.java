@@ -18,6 +18,7 @@ import guiTeacher.components.TextLabel;
 import guiTeacher.interfaces.Visible;
 import guiTeacher.userInterfaces.ClickableScreen;
 import guiTeacher.userInterfaces.FullFunctionScreen;
+import interfaces.ProgressInterface;
 import typingGame.ThemedTextLabel;
 import typingGame.Car;
 import typingGame.CarInterface;
@@ -41,10 +42,9 @@ public class GameScreen extends FullFunctionScreen implements Runnable, ActionLi
 	private ThemedTextLabel startword;
 	private TextInput keyin;
 	private Button start;
-	private int score;
 	private double timeLeft;
 	 
-	private Graphic image;
+	private MovingComponent image;
 	Timer tm = new Timer(5, this);
 	int x = 500;
 	int velX = -5;
@@ -52,6 +52,7 @@ public class GameScreen extends FullFunctionScreen implements Runnable, ActionLi
 	private AnimatedComponent a;
 	private MovingComponent m;
 	private Button restart;
+	private ProgressInterface score;
 	
 	
 	public static final Color BUTTON_COLOR = new Color(255, 255, 255);
@@ -86,7 +87,8 @@ public class GameScreen extends FullFunctionScreen implements Runnable, ActionLi
 //		int numberInRow =12;
 //		int rows = 5;
 	
-		int score = 0;
+		score = getAScore();
+		view.add((Visible) score);
 		label = new ThemedTextLabel(200, 150, 120, 50, "", Color.black);
 		view.add(label);
 		timelabel = new ThemedTextLabel(50, 250, 200, 50, "", Color.black);
@@ -104,18 +106,22 @@ public class GameScreen extends FullFunctionScreen implements Runnable, ActionLi
 		view.add(startword);
 		keyin = new TextInput();
 		view.add(keyin);
-		image = new Graphic(500, 200, 100, 100, "resource/car.png");
+		image = new Car(500, 200, 100, 100,1);
 		view.add(image);
-//		for(int i = 0; i < words.length; i++){			
-//			word = new ThemedTextLabel(200, 200, 200, 200, words[i],Color.black);
-//		}
-//		view.add(word);
+		
 		
 		
 	}
 	
 
 	
+
+
+	private ProgressInterface getAScore() {
+		return new Score();
+	}
+
+
 
 
 	@Override
@@ -130,12 +136,24 @@ public class GameScreen extends FullFunctionScreen implements Runnable, ActionLi
 		changeText("Go.....");
 		label.setText("");	
 		keyin.setDisplay(label);
+		keyin.setPointTracker(score);
 		keyin.setStart();
+		Thread x= new Thread(image);
+		x.start();
 		while(timeLeft > 0){
+				
 				updateTimer();
 				keyin.checkEntry();
-				score++;
+				
+
+//				if((boolean) keyin.checkEntry()== true){
+//					score.increaseScore(1);
+//
+//				}
+				
 			}
+		image.setRunning(false);
+		
 	}
 		
 	

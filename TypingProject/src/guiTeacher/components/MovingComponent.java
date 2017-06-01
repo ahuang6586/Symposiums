@@ -20,19 +20,21 @@ package guiTeacher.components;
 
 import java.awt.Color;
 import java.awt.Graphics2D;
+import java.awt.image.BufferedImage;
 
-public class MovingComponent extends Component implements Runnable{
+public abstract class MovingComponent extends Component implements Runnable{
 	private long moveTime; //time when the image last moved
-	private double vx; //the horizontal velocity
-	private double vy; //the vertical velocity
-	private double posx; //the actual x-coordinate of the object
-	private double posy; //the actual y-coordinate of the object
+	protected double vx; //the horizontal velocity
+	protected double vy; //the vertical velocity
+	protected double posx; //the actual x-coordinate of the object
+	protected double posy; //the actual y-coordinate of the object
 	private boolean running;
-
+	
 	public static final int REFRESH_RATE = 20;
 
 	public MovingComponent(int x, int y, int w, int h) {
 		super(x, y, w, h);
+		
 		vx = 0;
 		vy = 0;
 	}
@@ -113,10 +115,7 @@ public class MovingComponent extends Component implements Runnable{
 	 * for demonstration purposes only. Make abstract
 	 * @param g
 	 */
-	public void drawImage(Graphics2D g) {
-		g.setColor(Color.black);
-		g.fillOval(0, 0, getWidth(), getHeight());
-	}
+	public abstract void drawImage(Graphics2D g); 
 	
 	/**
 	 * For demonstration purposes only. Make abstract

@@ -1,15 +1,21 @@
 package typingGame;
 
 import java.awt.event.KeyEvent;
+import java.util.List;
 
 import guiTeacher.components.TextField;
+import guiTeacher.interfaces.Visible;
+import interfaces.ProgressInterface;
 
 public class TextInput extends TextField {
 	
 	private ThemedTextLabel display;
 	private String textToType;
 	private int index;
-	private int points;
+	private ProgressInterface score;
+	
+	
+	
 private String[] words = {"Love", "Hate", "Truth", "Happy", "Pressure",  "Vampire"
 			
 	        , "Surf", "Believe", "Slime", "Dream", "Religion", "Rhythm", "Disco", "Honey",
@@ -50,6 +56,7 @@ private String[] words = {"Love", "Hate", "Truth", "Happy", "Pressure",  "Vampir
 		
 
 	}
+	
 	public void keyTyped(KeyEvent e){
 		super.keyTyped(e);
 		char c = e.getKeyChar();
@@ -71,25 +78,42 @@ private String[] words = {"Love", "Hate", "Truth", "Happy", "Pressure",  "Vampir
 		
 		
 	}
+	public void initAllObjects(List<Visible> view){
+		score = getAScore();
+		view.add((Visible) score);
+	}
+	private ProgressInterface getAScore() {
+		return new Score();
+	}
 	public void setDisplay(ThemedTextLabel label) {
 		display = label;
 	}
 	public void checkEntry() {
-		points = 0;
-		if(getText().equals(textToType)){
+			if(getText().equals(textToType)){
 			
+				
 			index++;
-			
 			setCursor(0);
 			setText("");
+			if(score!=null){
+				score.increaseScore(textToType.length());
+			}
 			textToType = words[index];
 			display.setText(textToType);
-			points++;
+			
 		}
+		
 	}
+	
 	public void setStart() {
+		
 		textToType = words[index];
 		display.setText(textToType);
+	}
+
+	public void setPointTracker(ProgressInterface score2) {
+		// TODO Auto-generated method stub
+		this.score = score2;
 	}
 	
 }
