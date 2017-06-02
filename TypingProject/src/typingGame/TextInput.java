@@ -11,7 +11,6 @@ public class TextInput extends TextField {
 	
 	private ThemedTextLabel display;
 	private String textToType;
-	private int index;
 	private ProgressInterface score;
 	
 	
@@ -92,13 +91,12 @@ private String[] words = {"Love", "Hate", "Truth", "Happy", "Pressure",  "Vampir
 			if(getText().equals(textToType)){
 			
 				
-			index++;
 			setCursor(0);
 			setText("");
 			if(score!=null){
 				score.increaseScore(textToType.length());
 			}
-			textToType = words[index];
+			textToType = words[(int) ((Math.random()*words.length)+1)];
 			display.setText(textToType);
 			
 		}
@@ -106,8 +104,7 @@ private String[] words = {"Love", "Hate", "Truth", "Happy", "Pressure",  "Vampir
 	}
 	
 	public void setStart() {
-		
-		textToType = words[index];
+		textToType = words[(int) ((Math.random()*words.length)+1)];
 		display.setText(textToType);
 	}
 

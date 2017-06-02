@@ -24,8 +24,8 @@ public class Car extends MovingComponent {
 		
 	}
 	public void checkBehaviors(){
-		if(posy+vy > 300){
-			posy = 300;
+		if(posy+vy > 600){
+			posy = 600;
 			vy=-vy;
 		}
 		else if(posy+vy < 20){
@@ -33,8 +33,8 @@ public class Car extends MovingComponent {
 			vy=-vy;
 		}
 		
-		if(posx+vx > 300){
-			posx = 300;
+		if(posx+vx > 600){
+			posx = 600;
 			vx=-vx;
 		}
 		else if(posx+vx < 20){

@@ -97,7 +97,7 @@ public class GameScreen extends FullFunctionScreen implements Runnable, ActionLi
 			
 			@Override
 			public void act() {
-				// TODO Auto-generated method stub
+				
 				
 			}
 		});
@@ -106,7 +106,7 @@ public class GameScreen extends FullFunctionScreen implements Runnable, ActionLi
 		view.add(startword);
 		keyin = new TextInput();
 		view.add(keyin);
-		image = new Car(500, 200, 100, 100,1);
+		image = new Car(0, 400, 100, 100,1);
 		view.add(image);
 		
 		
