@@ -3,6 +3,10 @@ package typingGame;
 import java.awt.event.KeyEvent;
 import java.util.List;
 
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+
 import guiTeacher.components.TextField;
 import guiTeacher.interfaces.Visible;
 import interfaces.ProgressInterface;
@@ -60,18 +64,22 @@ private String[] words = {"Love", "Hate", "Truth", "Happy", "Pressure",  "Vampir
 		super.keyTyped(e);
 		char c = e.getKeyChar();
 		String t = getText();
-//		if(c == KeyEvent.VK_W){
-//			System.out.print("yes");
-//		}
-//		else{
-//			System.out.print("no");
-//		}
-		for(int i = 0; i < words[i].length();i++){
-			
-		}
+
 		
-		if(c == KeyEvent.VK_W ){
-			System.out.println("Right");
+		if(c == KeyEvent.VK_SPACE ){
+//			new Game(800,600);
+//			double timeLeft = 60.0;
+//			Thread play = new Thread(this);
+//			play.start();
+//			 JFrame frame = new JFrame();
+//			  ImageIcon icon = new ImageIcon("resource/car.jpg");
+//			  JLabel label = new JLabel(icon);
+//			  frame.add(label);
+//			  frame.setDefaultCloseOperation
+//			         (JFrame.EXIT_ON_CLOSE);
+//			  frame.pack();
+//			  frame.setVisible(true);
+			
 		}
 		
 		
@@ -104,6 +112,7 @@ private String[] words = {"Love", "Hate", "Truth", "Happy", "Pressure",  "Vampir
 	}
 	
 	public void setStart() {
+		
 		textToType = words[(int) ((Math.random()*words.length)+1)];
 		display.setText(textToType);
 	}
@@ -111,6 +120,9 @@ private String[] words = {"Love", "Hate", "Truth", "Happy", "Pressure",  "Vampir
 	public void setPointTracker(ProgressInterface score2) {
 		// TODO Auto-generated method stub
 		this.score = score2;
+	}
+	public void restart(){
+		
 	}
 	
 }

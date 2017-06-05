@@ -18,6 +18,7 @@ import guiTeacher.components.TextLabel;
 import guiTeacher.interfaces.Visible;
 import guiTeacher.userInterfaces.ClickableScreen;
 import guiTeacher.userInterfaces.FullFunctionScreen;
+import guiTeacher.userInterfaces.Screen;
 import interfaces.ProgressInterface;
 import typingGame.ThemedTextLabel;
 import typingGame.Car;
@@ -33,6 +34,7 @@ import java.beans.PropertyChangeListener;
 
 
 
+
 public class GameScreen extends FullFunctionScreen implements Runnable, ActionListener {
 	
 	
@@ -43,7 +45,7 @@ public class GameScreen extends FullFunctionScreen implements Runnable, ActionLi
 	private TextInput keyin;
 	private Button start;
 	private double timeLeft;
-	 
+	public static Screen ws; 
 	private MovingComponent image;
 	Timer tm = new Timer(5, this);
 	int x = 500;
@@ -97,12 +99,13 @@ public class GameScreen extends FullFunctionScreen implements Runnable, ActionLi
 			
 			@Override
 			public void act() {
-				
+				restart();
 				
 			}
+
 		});
 		view.add(start);
-		startword = new ThemedTextLabel(650, 25, 200, 100, "START", Color.black);
+		startword = new ThemedTextLabel(650, 25, 200, 100, "RESTART", Color.black);
 		view.add(startword);
 		keyin = new TextInput();
 		view.add(keyin);
@@ -113,8 +116,22 @@ public class GameScreen extends FullFunctionScreen implements Runnable, ActionLi
 		
 	}
 	
+	private void restart() {
+		ws = new GameScreen(getWidth(),getHeight());
+		setScreen(ws);
+		
+		
+		
+	}
 
 	
+
+
+	private void setScreen(Screen ws2) {
+	
+	}
+
+
 
 
 	private ProgressInterface getAScore() {
