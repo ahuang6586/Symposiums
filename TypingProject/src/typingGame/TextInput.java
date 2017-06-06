@@ -55,7 +55,7 @@ private String[] words = {"Love", "Hate", "Truth", "Happy", "Pressure",  "Vampir
 
 	        "Hair", "Spray", "Camp", "Jazz", "Rock", "Eggs", "Hustle"};
 	public TextInput() {
-		super(50,500,300,50,"Type Here");
+		super(50,500,350,50,"Type Here");
 		
 
 	}
@@ -104,7 +104,7 @@ private String[] words = {"Love", "Hate", "Truth", "Happy", "Pressure",  "Vampir
 			if(score!=null){
 				score.increaseScore(textToType.length());
 			}
-			textToType = words[(int) ((Math.random()*words.length)+1)];
+			textToType = words[(int) ((Math.random()*words.length))];
 			display.setText(textToType);
 			
 		}
@@ -113,7 +113,7 @@ private String[] words = {"Love", "Hate", "Truth", "Happy", "Pressure",  "Vampir
 	
 	public void setStart() {
 		
-		textToType = words[(int) ((Math.random()*words.length)+1)];
+		textToType = words[(int) ((Math.random()*words.length))];
 		display.setText(textToType);
 	}
 

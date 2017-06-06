@@ -30,6 +30,7 @@ import javax.swing.Timer;
 
 import java.awt.image.BufferedImage;
 import java.beans.PropertyChangeListener;
+import java.io.IOException;
 
 
 
@@ -99,7 +100,8 @@ public class GameScreen extends FullFunctionScreen implements Runnable, ActionLi
 			
 			@Override
 			public void act() {
-				restart();
+				
+				
 				
 			}
 
@@ -117,8 +119,7 @@ public class GameScreen extends FullFunctionScreen implements Runnable, ActionLi
 	}
 	
 	private void restart() {
-		ws = new GameScreen(getWidth(),getHeight());
-		setScreen(ws);
+		
 		
 		
 		
@@ -127,6 +128,10 @@ public class GameScreen extends FullFunctionScreen implements Runnable, ActionLi
 	
 
 
+	private void setDefaultCloseOperation(int exitOnClose) {
+		// TODO Auto-generated method stub
+		
+	}
 	private void setScreen(Screen ws2) {
 	
 	}

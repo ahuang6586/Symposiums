@@ -93,3 +93,7 @@ Tomorrow I will fix where my car starts.
 Today i want to make a restart button
 I am working on the restart button
 Tomorrow I will look at how to make my application restart
+6/6/17
+Still trying to figure out how to restart my application
+http://docs.oracle.com/javase/7/docs/api/java/awt/Window.html#dispose()
+Tomorrow I want to make the backgrounds more appealing.
