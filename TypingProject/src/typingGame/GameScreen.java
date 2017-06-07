@@ -21,6 +21,7 @@ import guiTeacher.userInterfaces.FullFunctionScreen;
 import guiTeacher.userInterfaces.Screen;
 import interfaces.ProgressInterface;
 import typingGame.ThemedTextLabel;
+import typingGame.ThemedTitle;
 import typingGame.Car;
 import typingGame.CarInterface;
 import javax.swing.JFrame;
@@ -43,6 +44,9 @@ public class GameScreen extends FullFunctionScreen implements Runnable, ActionLi
 	private ThemedTextLabel label;
 	private ThemedTextLabel timelabel;
 	private ThemedTextLabel startword;
+	private ThemedTextLabel wordstotype;
+	private ThemedTextLabel underline;
+	private ThemedTitle title;
 	private TextInput keyin;
 	private Button start;
 	private double timeLeft;
@@ -92,21 +96,28 @@ public class GameScreen extends FullFunctionScreen implements Runnable, ActionLi
 	
 		score = getAScore();
 		view.add((Visible) score);
-		label = new ThemedTextLabel(200, 150, 120, 50, "", Color.black);
+		title =  new ThemedTitle(100, 0, 400, 200, "Typing Game", Color.black);
+		view.add(title);
+		underline = new ThemedTextLabel(100, 150, 330, 50, "__________________________________", Color.black);
+		view.add(underline);
+		label = new ThemedTextLabel(200, 250, 120, 50, "", Color.black);
 		view.add(label);
-		timelabel = new ThemedTextLabel(50, 250, 200, 50, "", Color.black);
+		timelabel = new ThemedTextLabel(50, 300, 200, 50, "", Color.black);
 		view.add(timelabel);
+		wordstotype = new ThemedTextLabel(130, 250, 120, 50, "Type:", Color.black);
+		view.add(wordstotype);
 		start = new Button(600, 55, 200, 100, "", GameScreen.BUTTON_COLOR, new Action() {
 			
 			@Override
 			public void act() {
 				
-				
-				
+				//play.stop();
+				//close thread and then remake
 			}
 
 		});
 		view.add(start);
+		
 		startword = new ThemedTextLabel(650, 25, 200, 100, "RESTART", Color.black);
 		view.add(startword);
 		keyin = new TextInput();

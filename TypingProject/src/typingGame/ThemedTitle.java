@@ -28,7 +28,7 @@ public class ThemedTitle extends Component {
 		g.setColor(color);
 		g.setFont(new Font(font, Font.PLAIN, size));
 		if(text != null){
-			g.drawString(text, 4, (getHeight()-5));
+			g.drawString(text, 4, (getHeight()-10));
 		}	
 		
 	}

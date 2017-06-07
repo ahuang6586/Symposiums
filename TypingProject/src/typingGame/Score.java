@@ -24,6 +24,7 @@ public class Score extends Component implements ProgressInterface {
 
 	@Override
 	public void update(Graphics2D g) {
+		
 		g.setColor(new Color(200,220,255));
 		g.fillRect(0, 0, 99, 99);
 		g.setColor(Color.black);
