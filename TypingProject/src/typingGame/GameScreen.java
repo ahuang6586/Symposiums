@@ -3,8 +3,10 @@ package typingGame;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.Polygon;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.geom.Point2D;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -59,7 +61,11 @@ public class GameScreen extends FullFunctionScreen implements Runnable, ActionLi
 	private AnimatedComponent a;
 	private MovingComponent m;
 	private Button restart;
+	private CustomButton border1;
 	private ProgressInterface score;
+//	private TriangleShape triangleShape;
+//	private Polygon poly;
+	private ThemedBorder2 border2;
 	
 	
 	public static final Color BUTTON_COLOR = new Color(255, 255, 255);
@@ -93,8 +99,12 @@ public class GameScreen extends FullFunctionScreen implements Runnable, ActionLi
 //		int h = 293;
 //		int numberInRow =12;
 //		int rows = 5;
-	
-		score = getAScore();
+//		triangleShape = new TriangleShape(new Point2D.Double(50, 0),
+//		new Point2D.Double(100, 100), new Point2D.Double(0, 100));
+//	    view.add((Visible) triangleShape);
+//		poly = new Polygon(new int[] { 50, 100, 0 }, new int[] { 0, 100, 100 }, 3);
+//		view.add((Visible) poly);
+	    score = getAScore();
 		view.add((Visible) score);
 		title =  new ThemedTitle(100, 0, 400, 200, "Typing Game", Color.black);
 		view.add(title);
@@ -111,13 +121,25 @@ public class GameScreen extends FullFunctionScreen implements Runnable, ActionLi
 			@Override
 			public void act() {
 				
-				//play.stop();
-				//close thread and then remake
+				stop();
 			}
 
 		});
 		view.add(start);
-		
+		border1 = new ThemedBorder(Color.YELLOW,new Action() {
+			@Override
+			public void act() {
+
+			}
+		});
+		view.add(border1);
+		border2 = new ThemedBorder2(Color.YELLOW, new Action() {
+			@Override
+			public void act() {
+
+			}
+		});
+		view.add(border2);
 		startword = new ThemedTextLabel(650, 25, 200, 100, "RESTART", Color.black);
 		view.add(startword);
 		keyin = new TextInput();
@@ -130,9 +152,14 @@ public class GameScreen extends FullFunctionScreen implements Runnable, ActionLi
 	}
 	
 	private void restart() {
+		Thread.currentThread().start();
 		
 		
 		
+	}
+	private void stop(){
+		
+		Thread.currentThread().interrupt();
 		
 	}
 
