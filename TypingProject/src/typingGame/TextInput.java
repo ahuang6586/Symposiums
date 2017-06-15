@@ -55,7 +55,7 @@ private String[] words = {"Love", "Hate", "Truth", "Happy", "Pressure",  "Vampir
 
 	        "Hair", "Spray", "Camp", "Jazz", "Rock", "Eggs", "Hustle"};
 	public TextInput() {
-		super(50,500,350,50,"Type Here");
+		super(50,500,350,50,"");
 		
 
 	}
