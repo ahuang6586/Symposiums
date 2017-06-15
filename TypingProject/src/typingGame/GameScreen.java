@@ -120,8 +120,10 @@ public class GameScreen extends FullFunctionScreen implements Runnable, ActionLi
 			
 			@Override
 			public void act() {
-				
-				stop();
+				timeLeft = 60.0;
+				score = getAScore();
+				view.add((Visible) score);
+				keyin.setPointTracker(score);
 			}
 
 		});
